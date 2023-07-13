@@ -49,7 +49,7 @@ public class FileServiceImplement implements FileService {
         String fileUrl = FILE_URL + saveName;
         return fileUrl;
     }
-
+    
     @Override
     public Resource getFile(String fileName) {
         
