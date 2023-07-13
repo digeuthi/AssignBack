@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -49,7 +50,7 @@ public class FileServiceImplement implements FileService {
         String fileUrl = FILE_URL + saveName;
         return fileUrl;
     }
-    
+
     @Override
     public Resource getFile(String fileName) {
         
