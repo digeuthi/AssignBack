@@ -47,8 +47,8 @@ public class WebSecurityConfig {
         return httpSecurity.build();
 
     }
-    private Customizer<CorsConfigurer<HttpSecurity>> withDefaults() {
-        return null;
-    }
+    // private Customizer<CorsConfigurer<HttpSecurity>> withDefaults() {
+    //     return null;
+    // }
 
 }
