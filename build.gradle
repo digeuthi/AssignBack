@@ -26,7 +26,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-framework-dependencies:4.3.25.RELEASE' //추가한부분
+	//implementation 'org.springframework.boot:spring-framework-dependencies:4.3.25.RELEASE' //추가한부분
 	implementation group:'io.jsonwebtoken', name : 'jjwt', version : '0.9.1'
 	implementation "com.h2database:h2"
 	compileOnly 'org.projectlombok:lombok'
