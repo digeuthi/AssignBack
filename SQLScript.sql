@@ -42,9 +42,10 @@ WHERE B.board_writer_email = U.user_email
 ORDER BY B.board_number DESC
 );
 
-INSERT INTO board(board_writer_email, board_writer_name, board_title, board_content, board_image_url,board_write_date_time, board_blocked) VALUES ('abc@gmail.com', '홍길동', '제목','내용','aetsdtgd.jpg', '2023-07-12', false);
-INSERT INTO board(board_writer_email, board_writer_name, board_title, board_content, board_image_url,board_write_date_time, board_blocked) VALUES ('abc@gmail.com', '홍길동', '제목2','내용2','aetsdtgd.jpg', '2023-07-12', false);
-INSERT INTO board(board_writer_email, board_writer_name, board_title, board_content, board_image_url,board_write_date_time, board_blocked) VALUES ('abc@gmail.com', '홍길동', '제목3','내용3','aetsdtgd.jpg', '2023-07-12', false);
+INSERT INTO board(board_writer_email, board_writer_name, board_title, board_content, board_image_url,board_write_date_time, board_blocked) VALUES ('test1@gmail.com', '홍길동1', '제목','내용','aetsdtgd.jpg', DATE_FORMAT(now(), '%Y-%m-%d'), false);
+INSERT INTO board(board_writer_email, board_writer_name, board_title, board_content, board_image_url,board_write_date_time, board_blocked) VALUES ('test2@gmail.com', '홍길동2', '제목2','내용2','aetsdtgd.jpg', DATE_FORMAT(now(), '%Y-%m-%d'), false);
+INSERT INTO board(board_writer_email, board_writer_name, board_title, board_content, board_image_url,board_write_date_time, board_blocked) VALUES ('test3@gmail.com', '홍길동3', '제목3','내용3','aetsdtgd.jpg', DATE_FORMAT(now(), '%Y-%m-%d'), false);
+INSERT INTO board(board_writer_email, board_writer_name, board_title, board_content, board_image_url,board_write_date_time, board_blocked) VALUES ('test3@gmail.com', '홍길동3', '제목3','내용3','aetsdtgd.jpg',  DATE_FORMAT(now(), '%Y-%m-%d'), false);
 INSERT INTO User(user_email, user_password, user_name) values ('abc@gmail.com','1234','홍길동');
 INSERT INTO User(user_email, user_password, user_name) values ('def@gmail.com','1234','홍길동');
 INSERT INTO User(user_email, user_password, user_name) values ('ghi@gmail.com','1234','홍길동');
