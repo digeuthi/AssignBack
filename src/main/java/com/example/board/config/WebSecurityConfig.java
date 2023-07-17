@@ -27,18 +27,22 @@ public class WebSecurityConfig {
 
 
         httpSecurity
-                .cors().and()
                 .csrf().disable()
-                .httpBasic().disable()
                 .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests()
-                .antMatchers("/board/list").permitAll()
-                .antMatchers(HttpMethod.GET, "/board").permitAll()
-                .antMatchers(HttpMethod.POST).hasRole("USER")
-                .antMatchers(HttpMethod.PATCH).hasRole("USER")
-                .antMatchers(HttpMethod.DELETE, "/board/{boardNumber}").hasRole("USER")
-                .antMatchers("/board/list/blocked").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/user").permitAll()
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated();
+
+                //  .cors().and()
+                // .csrf().disable()
+                // .httpBasic().disable()
+                
+                // .antMatchers(HttpMethod.GET, "/board").permitAll()
+             
+                // .antMatchers(HttpMethod.PATCH).hasRole("USER")
+                // .antMatchers(HttpMethod.DELETE, "/board/{boardNumber}").hasRole("USER")
+                // .antMatchers("/board/list/blocked").hasRole("ADMIN")
 
         httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

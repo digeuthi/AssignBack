@@ -34,11 +34,12 @@ public class UserController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<? super GetAuthResponseDto> signIn(
-        @Valid @RequestBody SignInRequestDto requsetBody
+    public void signIn(
+        //@Valid @RequestBody SignInRequestDto requsetBody
     ){
-        ResponseEntity<? super GetAuthResponseDto> response = userService.signIn(requsetBody);
-        return response;
+        // ResponseEntity<? super GetAuthResponseDto> response = userService.signIn(requsetBody);
+        userService.signIn();
+        System.out.println("ddddd");
     }
 
     @GetMapping("/logout")
@@ -46,6 +47,12 @@ public class UserController {
         @AuthenticationPrincipal String email, @Valid HttpSession httpSession) {
         ResponseEntity<? super GetAuthResponseDto> response = userService.logout(email, httpSession);
         return response;
+    }
+
+
+    @GetMapping("/test")
+    public void test() {
+        userService.test();
     }
     
 }

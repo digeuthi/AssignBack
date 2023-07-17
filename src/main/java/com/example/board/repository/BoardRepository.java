@@ -32,7 +32,5 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Integer>{
     nativeQuery = true
     )
     public List<BoardEntity> getSearchWord(@Param("words") String words);
-
-
     
 }

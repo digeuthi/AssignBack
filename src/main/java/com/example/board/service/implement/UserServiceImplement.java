@@ -125,5 +125,25 @@ public class UserServiceImplement implements UserService{
         return comparedResult;
         
     }
+
+    @Override
+    public void test(){
+        System.out.println("11421421224124214214214214");
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUserEmail("qwer");
+        userEntity.setUserName("1111");
+        userEntity.setUserPassword("1111");
+        userEntity.setJwtoken("1111");
+    
+        userRepository.save(userEntity);
+    }
+
+    @Override
+    public void signIn() {
+        System.out.println("dddd");
+        UserEntity userEntity = new UserEntity();
+        userEntity.getUserEmail();
+        userEntity.getUserPassword();
+    }
     
 }

@@ -11,9 +11,12 @@ import com.example.board.dto.response.user.GetAuthResponseDto;
 public interface UserService {
 
     public ResponseEntity<? super GetAuthResponseDto> signIn(SignInRequestDto dto);
+    public void signIn();
     public ResponseEntity<? super GetAuthResponseDto> signUp(SignUpRequestDto dto);
     public ResponseEntity<? super GetAuthResponseDto> logout(String email, HttpSession httpSession);
 
     public boolean validateStoredToken(String email, String token);
+
+    public void test();
     
 }
