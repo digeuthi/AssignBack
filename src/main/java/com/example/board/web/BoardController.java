@@ -89,5 +89,10 @@ public class BoardController {
     public void blockBoard(@PathVariable Integer boardNumber) {
         boardService.blockBoard(boardNumber);
     }
+
+    @GetMapping("/test")
+    public void test() {
+        boardService.test();
+    }
     
 }

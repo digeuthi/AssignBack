@@ -21,5 +21,6 @@ public interface BoardService {
     public ResponseEntity<ResponseDto> deleteBoard(String email, Integer boardNumber);
 
     public ResponseEntity<ResponseDto> blockBoard(Integer boardNumber);
+    public void test();
     
 }

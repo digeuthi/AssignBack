@@ -202,4 +202,19 @@ public class BoardServiceImplement implements BoardService{
         
         return CustomResponse.successs();
     }
+
+    @Override
+    public void test() {
+        System.out.println("test");
+        BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setBoardWriterEmail("asdf@gmail.com");
+        boardEntity.setBoardWriterName("Jhon");
+        boardEntity.setBoardTitle("Title");
+        boardEntity.setBoardContent("Content");
+        boardEntity.setBoardBlocked(false);
+        boardEntity.setBoardWriteDateTime("2023-07-18");
+
+    
+        boardRepository.save(boardEntity);
+    }
 }
