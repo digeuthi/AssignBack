@@ -1,0 +1,25 @@
+2023-07-17 11:51:19.235  INFO 14332 --- [main] com.example.board.BoardApplication       : Starting BoardApplication using Java 17.0.7 on DESKTOP-V9L0FK5 with PID 14332 (C:\Users\howon\Desktop\assign\board\bin\main started by howon in C:\Users\howon\Desktop\assign\board)
+2023-07-17 11:51:19.239  INFO 14332 --- [main] com.example.board.BoardApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-07-17 11:51:19.729  INFO 14332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-17 11:51:19.798  INFO 14332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 2 JPA repository interfaces.
+2023-07-17 11:51:20.311  INFO 14332 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-07-17 11:51:20.332  INFO 14332 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-17 11:51:20.333  INFO 14332 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-07-17 11:51:20.443  INFO 14332 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-17 11:51:20.444  INFO 14332 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1169 ms
+2023-07-17 11:51:20.552  INFO 14332 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-17 11:51:20.797  INFO 14332 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-17 11:51:20.839  INFO 14332 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-17 11:51:20.882  INFO 14332 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-07-17 11:51:21.026  INFO 14332 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-17 11:51:21.140  INFO 14332 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-07-17 11:51:21.569  INFO 14332 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-17 11:51:21.578  INFO 14332 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-17 11:51:21.948  WARN 14332 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 256a5097-f435-4427-a3f6-589b7a1f1fbe
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-07-17 11:51:22.035  WARN 14332 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-17 11:51:22.174  INFO 14332 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@58647985, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e1c91cd, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c3d72fd, org.springframework.security.web.header.HeaderWriterFilter@8dcacf1, org.springframework.web.filter.CorsFilter@69e8b711, org.springframework.security.web.authentication.logout.LogoutFilter@a302f30, com.example.board.filter.JwtAuthenticationFilter@4d79d187, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@640a6d4b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@446dacf9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@764a3867, org.springframework.security.web.session.SessionManagementFilter@49c4118b, org.springframework.security.web.access.ExceptionTranslationFilter@1fa796a4, org.springframework.security.web.access.intercept.AuthorizationFilter@42028589]
