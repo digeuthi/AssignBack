@@ -87,7 +87,6 @@ public class BoardServiceImplement implements BoardService{
     @Override
     public ResponseEntity<? super GetBoardListResponseDto> getBoardList(Pageable pageable) {
         // 게시물이 차단 된 경우 게시글 목록에서 보여지지 않게 해야함.
-        // nonblock의 경우에만 보이게 해야한다.
         // TODO : 페이징 처리부분을 추가해야함.
         GetBoardListResponseDto body = null;
         try {
