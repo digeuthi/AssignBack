@@ -36,7 +36,7 @@ B.board_writer_name AS boardWriterName,
 B.board_title AS title,
 B.board_content AS boardContent,
 B.board_image_url AS boardImageUrl,
-B.board_write_datetime AS boardWriteDatetime
+B.board_write_date_time AS boardWriteDatetime
 From board B, user U
 WHERE B.board_writer_email = U.user_email
 ORDER BY B.board_number DESC
