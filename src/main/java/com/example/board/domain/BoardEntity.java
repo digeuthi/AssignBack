@@ -31,7 +31,7 @@ public class BoardEntity {
     private String boardTitle;
     private String boardContent;
     private String boardImageUrl;
-    private String boardWriteDatetime;
+    private String boardWriteDateTime;
     private boolean boardBlocked;
 
     public BoardEntity(String email, PostBoardRequestDto dto){
@@ -43,7 +43,7 @@ public class BoardEntity {
         this.boardTitle = dto.getBoardTitle();
         this.boardContent = dto.getBoardContent();
         this.boardImageUrl = dto.getBoardImageUrl();
-        this.boardWriteDatetime = writeDateTime;
+        this.boardWriteDateTime = writeDateTime;
     
     }
 
