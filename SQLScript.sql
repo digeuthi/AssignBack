@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `board`.`Board` (
   `board_title` VARCHAR(45) NOT NULL COMMENT '게시글제목',
   `board_content` TEXT NOT NULL COMMENT '게시글내용',
   `board_image_url` VARCHAR(511) NULL COMMENT '게시글 이미지',
-  `board_write_datetime` DATE NOT NULL,
+  `board_write_date_time` DATE NOT NULL,
   `board_blocked` BOOLEAN NOT NULL,
   PRIMARY KEY (`board_number`))
 ENGINE = InnoDB
