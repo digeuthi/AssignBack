@@ -49,7 +49,6 @@ public class UserController {
         return response;
     }
 
-
     @GetMapping("/test")
     public void test() {
         userService.test();
