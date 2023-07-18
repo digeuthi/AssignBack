@@ -10,10 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostBoardRequestDto {
-    
-    @NotBlank
+
     private String boardTitle;
-    @NotBlank
     private String boardContent;
     private String boardImageUrl;
 

@@ -61,7 +61,7 @@ public class GetBoardListResponseDto extends ResponseDto{
             this.boardTitle =boardEntity.getBoardTitle();
             this.boardContent=boardEntity.getBoardContent();
             //this.boardImageUrl=boardEntity.getBoardImageUrl();
-            this.boardWriteDatetime = boardEntity.getBoardWriteDateTime();
+            //this.boardWriteDatetime = boardEntity.getBoardWriteDateTime();
             this.boardWriterEmail = boardEntity.getBoardWriterEmail();
         }
 

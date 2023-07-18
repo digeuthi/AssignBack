@@ -25,6 +25,7 @@ public class UserServiceImplement implements UserService{
     private JwtProvider jwtProvider;
     private PasswordEncoder passwordEncoder;
     private HttpSession httpSession;
+    private UserEntity userEntity;
 
     @Autowired
     public UserServiceImplement(
@@ -37,68 +38,85 @@ public class UserServiceImplement implements UserService{
     }
 
     @Override //회원가입
-    public ResponseEntity<? super GetAuthResponseDto> signUp(SignUpRequestDto dto) {
-        GetAuthResponseDto body = null;
-        String userEmail = dto.getUserEmail();
-        String userPassword = dto.getUserPassword();
-        String userName = dto.getUserName();
+    public void signUp(UserEntity dto) {
+        System.out.println(dto.toString());
+        
+        userRepository.save(dto);
+        //GetAuthResponseDto body = null;
+        // String userEmail = dto.getUserEmail();
+        // String userPassword = dto.getUserPassword();
+        // String userName = dto.getUserName();
 
-        try {
-            // 존재하는 유저 이메일
-            boolean existedUserEmail = userRepository.existsByUserEmail(userEmail);
-            if (existedUserEmail)
-                return CustomResponse.existUserEmail();
+        // try {
+        //     // 존재하는 유저 이메일
+        //     boolean existedUserEmail = userRepository.existsByUserEmail(userEmail);
+        //     if (existedUserEmail)
+        //         return CustomResponse.existUserEmail();
 
-            String encodedPassword = passwordEncoder.encode(userPassword); // 유저 계정 생성 및 암호화 작업
-            dto.setUserPassword(encodedPassword);
+        //     String encodedPassword = passwordEncoder.encode(userPassword); // 유저 계정 생성 및 암호화 작업
+        //     dto.setUserPassword(encodedPassword);
 
-            UserEntity userEntity = new UserEntity(dto);
-            userRepository.save(userEntity);
-            System.out.println(userEntity.toString());
-            int userCode = userEntity.getUserCode();
+        //     UserEntity userEntity = new UserEntity(dto);
+        //     userRepository.save(userEntity);
+        //     System.out.println(userEntity.toString());
+        //     int userCode = userEntity.getUserCode();
 
-            body = new GetAuthResponseDto(userCode);
+        //     body = new GetAuthResponseDto(userCode);
 
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            return CustomResponse.databaseError();
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(body);
+        // } catch (Exception exception) {
+        //     exception.printStackTrace();
+        //     return CustomResponse.databaseError();
+        // }
+        // return ResponseEntity.status(HttpStatus.OK).body(body);
     }
 
-    @Override //로그인
-    public ResponseEntity<? super GetAuthResponseDto> signIn(SignInRequestDto dto) {
-        GetAuthResponseDto body = null;
-
-        String userEmail = dto.getUserEmail();
-        String userPassword = dto.getUserPassword();
-
-        try {
-            // 로그인 실패 (이메일 x)
-            UserEntity userEntity = userRepository.findByUserEmail(userEmail);
-            if (userEntity == null)
-                return CustomResponse.signInFailed();
-
-            // 로그인 실패 (패스워드 x)
-            String encordedPassword = userEntity.getUserPassword();
-            boolean equaledPassword = passwordEncoder.matches(userPassword, encordedPassword);
+    @Override
+    public void signIn(UserEntity dto) {
             
-            if (!equaledPassword)
-                return CustomResponse.signInFailed();
+        String userEmail = dto.getUserEmail();
+        String userPassword = dto.getUserPassword();
 
-            String jwt = jwtProvider.create(userEmail);
-            int userCode = userEntity.getUserCode();
-            String jwtSecret = jwt.split("\\.")[2];
-            String encordJwt = passwordEncoder.encode(jwtSecret);
-            userEntity.setJwtoken(encordJwt);
-            userRepository.save(userEntity);
-            body = new GetAuthResponseDto(jwt, userCode);
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            return CustomResponse.databaseError();
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(body);
+        System.out.println("dddd");
+        UserEntity userEntity = new UserEntity();
+        userEntity.getUserEmail();
+        
+        userEntity.getUserPassword();
+        userEntity.setJwtoken("1");
     }
+
+    // @Override //로그인
+    // public ResponseEntity<? super GetAuthResponseDto> signIn(SignInRequestDto dto) {
+    //     GetAuthResponseDto body = null;
+
+    //     String userEmail = dto.getUserEmail();
+    //     String userPassword = dto.getUserPassword();
+
+        // try {
+        //     // 로그인 실패 (이메일 x)
+        //     UserEntity userEntity = userRepository.findByUserEmail(userEmail);
+        //     if (userEntity == null)
+        //         return CustomResponse.signInFailed();
+
+        //     // 로그인 실패 (패스워드 x)
+        //     String encordedPassword = userEntity.getUserPassword();
+        //     boolean equaledPassword = passwordEncoder.matches(userPassword, encordedPassword);
+            
+        //     if (!equaledPassword)
+        //         return CustomResponse.signInFailed();
+
+        //     String jwt = jwtProvider.create(userEmail);
+        //     int userCode = userEntity.getUserCode();
+        //     String jwtSecret = jwt.split("\\.")[2];
+        //     String encordJwt = passwordEncoder.encode(jwtSecret);
+        //     userEntity.setJwtoken(encordJwt);
+        //     userRepository.save(userEntity);
+        //     body = new GetAuthResponseDto(jwt, userCode);
+        // } catch (Exception exception) {
+        //     exception.printStackTrace();
+        //     return CustomResponse.databaseError();
+        // }
+        // return ResponseEntity.status(HttpStatus.OK).body(body);
+    //}
 
     @Override //로그아웃
     public ResponseEntity<? super GetAuthResponseDto> logout(String email, HttpSession httpSession) {
@@ -138,12 +156,6 @@ public class UserServiceImplement implements UserService{
         userRepository.save(userEntity);
     }
 
-    @Override
-    public void signIn() {
-        System.out.println("dddd");
-        UserEntity userEntity = new UserEntity();
-        userEntity.getUserEmail();
-        userEntity.getUserPassword();
-    }
+    
     
 }

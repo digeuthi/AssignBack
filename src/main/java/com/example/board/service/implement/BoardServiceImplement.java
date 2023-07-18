@@ -1,5 +1,6 @@
 package com.example.board.service.implement;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -31,33 +32,40 @@ public class BoardServiceImplement implements BoardService{
     private final BoardRepository boardRepository;
 
     @Override
-    public ResponseEntity<ResponseDto> postBoard(String email, PostBoardRequestDto dto) {
-        
+    public void postBoard(BoardEntity dto) {
+        System.out.println("ddd");
+        System.out.println(dto.toString());
+        dto.setBoardWriteDateTime(new Date());
+        dto.setBoardWriterEmail("abcd@gmail.com");
+        dto.setBoardWriterName("김김");
+
+        boardRepository.save(dto);
+        // boardRepository
         // 게시물 작성
-        String boardWriterEmail = email;
-        UserEntity userEntity;
+        // String boardWriterEmail = email;
+        // UserEntity userEntity;
        
-        try {
-            // 회원가입 한 회원 확인
-            boolean isUser = userRepository.existsByUserEmail(boardWriterEmail);
-            if(!isUser){
-                return CustomResponse.noPermission();
-            }
-            userEntity = userRepository.findByUserEmail(boardWriterEmail);
-            String userName = userEntity.getUserName();
+        // try {
+        //     // 회원가입 한 회원 확인
+        //     boolean isUser = userRepository.existsByUserEmail(boardWriterEmail);
+        //     if(!isUser){
+        //         return CustomResponse.noPermission();
+        //     }
+        //     userEntity = userRepository.findByUserEmail(boardWriterEmail);
+        //     String userName = userEntity.getUserName();
 
-            BoardEntity boardEntity = new BoardEntity(email, dto);
-            boardEntity.setBoardWriterName(userName);
-            boardRepository.save(boardEntity);
+        //     BoardEntity boardEntity = new BoardEntity(email, dto);
+        //     boardEntity.setBoardWriterName(userName);
+        //     boardRepository.save(boardEntity);
 
-        } catch (Exception exception) {
-            // 데이터 베이스 오류반환
-            exception.printStackTrace();
+        // } catch (Exception exception) {
+        //     // 데이터 베이스 오류반환
+        //     exception.printStackTrace();
 
-            return CustomResponse.databaseError();
-        }
-        // 성공반환
-        return CustomResponse.successs();
+        //     return CustomResponse.databaseError();
+        // }
+        // // 성공반환
+        // return CustomResponse.successs();
     }
     
     //게시물 조회
@@ -212,8 +220,6 @@ public class BoardServiceImplement implements BoardService{
         boardEntity.setBoardTitle("Title");
         boardEntity.setBoardContent("Content");
         boardEntity.setBoardBlocked(false);
-        boardEntity.setBoardWriteDateTime("2023-07-18");
-
     
         boardRepository.save(boardEntity);
     }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.board.domain.BoardEntity;
 import com.example.board.dto.request.board.GetBoardListWithWordDto;
 import com.example.board.dto.request.board.PatchBoardRequestDto;
 import com.example.board.dto.request.board.PostBoardRequestDto;
@@ -34,11 +35,10 @@ public class BoardController {
 
     // 1. 게시물 등록
     @PostMapping("")
-    public ResponseEntity<ResponseDto> postBoard(
-            @AuthenticationPrincipal String userEmail,
-            @Valid @RequestBody PostBoardRequestDto requestbody) {
-        ResponseEntity<ResponseDto> response = boardService.postBoard(userEmail, requestbody);
-        return response;
+    public void postBoard(
+            @RequestBody BoardEntity dto) {
+                System.out.println("ddd");
+         boardService.postBoard(dto);
     }
 
     // 2. 특정게시물 조회

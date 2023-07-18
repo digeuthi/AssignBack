@@ -3,6 +3,7 @@ package com.example.board.service;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
+import com.example.board.domain.BoardEntity;
 import com.example.board.dto.request.board.GetBoardListWithWordDto;
 import com.example.board.dto.request.board.PatchBoardRequestDto;
 import com.example.board.dto.request.board.PostBoardRequestDto;
@@ -12,7 +13,7 @@ import com.example.board.dto.response.board.GetBoardListResponseDto;
 
 public interface BoardService {
     
-    public ResponseEntity<ResponseDto> postBoard(String email, PostBoardRequestDto dto);
+    public void postBoard(BoardEntity dto);
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber);
     public ResponseEntity<? super GetBoardListResponseDto> getBoardList(Pageable pageable);
     public ResponseEntity<? super GetBoardListResponseDto> getBoardWithWords(GetBoardListWithWordDto words);

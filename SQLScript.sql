@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `board`.`Board` (
   `board_title` VARCHAR(45) NOT NULL COMMENT '게시글제목',
   `board_content` TEXT NOT NULL COMMENT '게시글내용',
   `board_image_url` VARCHAR(511) NULL COMMENT '게시글 이미지',
-  `board_write_date_time` DATE NOT NULL,
+  `board_write_datetime` DATE default now(),
   `board_blocked` BOOLEAN NOT NULL,
   PRIMARY KEY (`board_number`))
 ENGINE = InnoDB
@@ -51,3 +51,6 @@ INSERT INTO User(user_email, user_password, user_name) values ('def@gmail.com','
 INSERT INTO User(user_email, user_password, user_name) values ('ghi@gmail.com','1234','홍길동');
 INSERT INTO User(user_email, user_password, user_name) values ('jkl@gmail.com','1234','홍길동');
 INSERT INTO User(user_email, user_password, user_name) values ('mno@gmail.com','1234','홍길동');
+
+
+select * from user

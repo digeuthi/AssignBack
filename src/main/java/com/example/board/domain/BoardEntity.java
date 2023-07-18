@@ -18,7 +18,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "Board")
 @Table(name = "Board")
@@ -39,21 +38,12 @@ public class BoardEntity {
     @Column(name = "board_image_url")
     private String boardImageUrl;
     @Column(name = "board_write_date_time")
-    private String boardWriteDateTime;
+    private Date boardWriteDateTime;
     @Column(name = "board_blocked")
     private boolean boardBlocked;
 
-    public BoardEntity(String email, PostBoardRequestDto dto){
-        Date now = new Date();
-        SimpleDateFormat simpleDateFormat =
-        new SimpleDateFormat("yyyy-MM-dd");
-        String writeDateTime = simpleDateFormat.format(now);
-        this.boardWriterEmail = email;
-        this.boardTitle = dto.getBoardTitle();
-        this.boardContent = dto.getBoardContent();
-        this.boardImageUrl = dto.getBoardImageUrl();
-        this.boardWriteDateTime = writeDateTime;
-    
+    public BoardEntity(){
+        
     }
 
 }
